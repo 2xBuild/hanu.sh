@@ -1,0 +1,23 @@
+  body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            text-align: left;
+            font-size: 14px;
+        }
+        a {
+            display: block;
+            margin: 5px 0;
+        }
+        p {
+            font-size: medium;
+        }
