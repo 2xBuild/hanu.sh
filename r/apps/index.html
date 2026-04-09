@@ -68,11 +68,14 @@
             } else {
                 p.append(document.createTextNode(item.text ?? ""));
             }
-            const sep = document.createElement("span");
-            sep.className = "sep";
-            sep.textContent = "—";
-            p.append(sep);
-            p.append(document.createTextNode(item.name));
+            const name = (item.name ?? "").trim();
+            if (name) {
+                const sep = document.createElement("span");
+                sep.className = "sep";
+                sep.textContent = "—";
+                p.append(sep);
+                p.append(document.createTextNode(name));
+            }
             return p;
         }
 
