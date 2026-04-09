@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanu — Apps & domains</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .section {
+            margin-top: 2rem;
+        }
+
+        .section:first-of-type {
+            margin-top: 0;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: normal;
+            margin-bottom: 1rem;
+        }
+
+        .row {
+            margin: 0.5rem 0;
+        }
+
+        .row a {
+            display: inline;
+            margin: 0;
+        }
+
+        .sep {
+            color: #666;
+            padding: 0 0.35rem;
+        }
+
+        .domain-cta {
+            text-align: center;
+            font-size: 0.72rem;
+            opacity: 0.38;
+            margin: 2.5rem auto 0;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .domain-cta p {
+            font-size: inherit;
+            margin: 0;
+        }
+
+        .domain-cta a {
+            display: inline;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="root"></div>
+    <script>
+        function rowEl(item) {
+            const p = document.createElement("p");
+            p.className = "row";
+            if (item.href) {
+                const a = document.createElement("a");
+                a.href = item.href;
+                a.textContent = item.linkText ?? item.href;
+                p.append(a);
+            } else {
+                p.append(document.createTextNode(item.text ?? ""));
+            }
+            const sep = document.createElement("span");
+            sep.className = "sep";
+            sep.textContent = "—";
+            p.append(sep);
+            p.append(document.createTextNode(item.name));
+            return p;
+        }
+
+        (async function () {
+            const root = document.getElementById("root");
+            const res = await fetch("data.json");
+            if (!res.ok) {
+                root.textContent = "Could not load list.";
+                return;
+            }
+            const data = await res.json();
+            for (const section of data.sections) {
+                const wrap = document.createElement("div");
+                wrap.className = "section";
+                const title = document.createElement("div");
+                title.className = "section-title";
+                title.textContent = section.title;
+                wrap.append(title);
+                for (const item of section.items) {
+                    wrap.append(rowEl(item));
+                }
+                root.append(wrap);
+            }
+        })();
+    </script>
+    <footer class="domain-cta">
+        <p>wanna buy a domain? hmu @ <a href="https://x.com/izzHanu">Hanu</a></p>
+    </footer>
+</body>
+</html>

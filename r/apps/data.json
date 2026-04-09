@@ -1,0 +1,40 @@
+{
+  "sections": [
+    {
+      "title": "Apps",
+      "items": [
+        {
+          "name": "build cute portfolios and linkfolios",
+          "href": "https://cutefolio.com",
+          "linkText": "cutefolio.com"
+        },
+        {
+          "name": "tech part of twitter with events, clashes, and highlights",
+          "href": "https://tpot.cc",
+          "linkText": "tpot.cc"
+        }
+      ]
+    },
+    {
+      "title": "Domains",
+      "items": [
+        { "name": "drawi.ai", "href": "https://drawi.ai", "linkText": "drawi.ai" },
+        { "name": "buildzak.com", "href": "https://buildzak.com", "linkText": "buildzak.com" },
+        { "name": "oneDB.net", "href": "https://oneDB.net", "linkText": "oneDB.net" },
+        { "name": "a9ents.com", "href": "https://a9ents.com", "linkText": "a9ents.com" },
+        { "name": "moltchat.io", "href": "https://moltchat.io", "linkText": "moltchat.io" },
+
+        { "name": "kno.li", "href": "https://kno.link", "linkText": "kno.link" },
+
+        { "name": "lnk.ad", "href": "https://lnk.ad", "linkText": "lnk.ad" },
+        { "name": "memes.fit", "href": "https://memes.fit", "linkText": "memes.fit" },
+        { "name": "about.ec", "href": "https://about.ec", "linkText": "about.ec" },
+        { "name": "wanna-hire.me", "href": "https://wanna-hire.me", "linkText": "wanna-hire.me" },
+        { "name": "it-iz.me", "href": "https://it-iz.me", "linkText": "it-iz.me" },
+        { "name": "TheVirtualSF.com", "href": "https://TheVirtualSF.com", "linkText": "TheVirtualSF.com" },
+        { "name": "builderz.space", "href": "https://builderz.space", "linkText": "builderz.space" }
+
+      ]
+    }
+  ]
+}
