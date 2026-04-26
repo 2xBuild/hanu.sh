@@ -1,21 +1,6 @@
 {
   "sections": [
     {
-      "title": "Apps",
-      "items": [
-        {
-          "name": "build cute portfolios and linkfolios",
-          "href": "https://cutefol.io",
-          "linkText": "cutefolio"
-        },
-        {
-          "name": "tech part of twitter with events, clashes, and highlights",
-          "href": "https://tpot.cc",
-          "linkText": "tpot.cc"
-        }
-      ]
-    },
-    {
       "title": "Domains",
       "items": [
         { "name": "", "href": "https://drawi.ai", "linkText": "drawi.ai" },
