@@ -14,10 +14,101 @@
             text-align: left;
             font-size: 14px;
         }
+        .intro-wrap {
+            display: flex;
+            justify-content: flex-start;
+        }
+        #intro {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: min(100%, 520px);
+        }
+        .social-icons {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            width: 100%;
+            padding: 8px 0;
+        }
+        .social-icons .icon-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            margin: 0;
+            text-decoration: none;
+            font-size: 16px;
+            color: #111;
+        }
+        .social-icons .icon-link:hover {
+            transform: translateY(-1px);
+        }
         a {
             display: block;
             margin: 5px 0;
         }
+        .more-links a {
+            display: block;
+        }
+        #intro p {
+            margin: 0;
+            text-align: left;
+        }
         p {
             font-size: medium;
+        }
+
+        .portfolio-page {
+            min-height: calc(100vh - 40px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+        .portfolio-page .portfolio-title {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .portfolio-page .apps-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+        }
+        .portfolio-page .app-line a {
+            display: inline;
+            margin: 0;
+            font-size: 16px;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 4px;
+        }
+        .portfolio-page .app-desc {
+            margin-left: 8px;
+            font-size: 14px;
+        }
+        @media (max-width: 640px) {
+            .portfolio-page {
+                gap: 10px;
+            }
+            .portfolio-page .portfolio-title {
+                font-size: 22px;
+            }
+            .portfolio-page .app-line a {
+                font-size: 16px;
+            }
+            .portfolio-page .app-desc {
+                display: block;
+                margin: 2px 0 0;
+                font-size: 14px;
+            }
         }
