@@ -24,9 +24,6 @@ html,
 body {
   background: rgb(var(--color-bg));
   color: rgb(var(--color-fg));
-  transition:
-    background-color 200ms ease,
-    color 200ms ease;
 }
 
 body {

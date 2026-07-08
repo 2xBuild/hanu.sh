@@ -32,13 +32,13 @@ export default function HomePage() {
         <p>
           21 y.o. fullstack eng with design eyes who loves to explore, break and build.{" "}
           <span className="text-fg/75">co-founder at </span>
-        <span className="inline-flex items-center gap-1 pl-1">
-            <SiteLogo className="h-4 w-4" src={projects[0].logo} name="onepurplepen" />
+        <span className="inline-flex items-baseline gap-1 pl-1 align-baseline">
+            <SiteLogo className="relative top-[0.08em] h-[0.95em] w-[0.95em]" src={projects[0].logo} name="onepurplepen" />
             <a
             href="https://onepurplepen.com"
             target="_blank"
             rel="noreferrer"
-            className=" inline-flex items-center gap-2"
+            className="inline-flex items-baseline"
           >
             <span>onepurplepen</span>
           </a>
