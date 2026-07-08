@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: #0a0a0a;
+  color: #e6e6e6;
+}
+
+body {
+  font-kerning: normal;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #e6e6e6;
+  color: #0a0a0a;
+}
+
+a {
+  color: inherit;
+}
+
+.silent-underline {
+  text-decoration-line: underline;
+  text-decoration-color: #2a2a2a;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 150ms ease;
+}
+
+.silent-underline:hover {
+  text-decoration-color: #3a3a3a;
+}
+
+.wordmark-underline {
+  text-decoration-line: underline;
+  text-decoration-style: double;
+  text-decoration-color: #60a5fa;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.16em;
+}
