@@ -33,7 +33,7 @@ const journey = [
 const stack = [
   {
     label: "Focus",
-    body: "allrounder; from distributed systems to agentic ai. designing aesthetic stuff to selling it. ",
+    body: "All-rounder; from Distributed Systems to Agentic AI. Designing aesthetic stuff to selling it. ",
   },
   {
     label: "Frontend",
