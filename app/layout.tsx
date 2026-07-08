@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 import "./globals.css";
 
 const generalSans = localFont({
@@ -46,8 +47,19 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${generalSans.variable} ${jejuMyeongjo.variable}`}
     >
+      <head>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`try {
+            const savedTheme = localStorage.getItem("theme");
+            const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+            document.documentElement.dataset.theme = savedTheme === "dark" || savedTheme === "light" ? savedTheme : systemTheme;
+          } catch {}
+          `}
+        </Script>
+      </head>
       <body className="min-h-dvh bg-bg font-sans text-fg antialiased">
         {children}
       </body>

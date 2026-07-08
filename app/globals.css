@@ -4,12 +4,29 @@
 
 :root {
   color-scheme: dark;
+  --color-bg: 10 10 10;
+  --color-fg: 230 230 230;
+  --color-muted: 138 138 138;
+  --color-line: 42 42 42;
+  --color-surface: 255 255 255;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: 249 247 242;
+  --color-fg: 27 27 27;
+  --color-muted: 101 101 101;
+  --color-line: 214 209 201;
+  --color-surface: 17 17 17;
 }
 
 html,
 body {
-  background: #0a0a0a;
-  color: #e6e6e6;
+  background: rgb(var(--color-bg));
+  color: rgb(var(--color-fg));
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
 }
 
 body {
@@ -20,8 +37,8 @@ body {
 }
 
 ::selection {
-  background: #e6e6e6;
-  color: #0a0a0a;
+  background: rgb(var(--color-fg));
+  color: rgb(var(--color-bg));
 }
 
 a {
@@ -30,14 +47,14 @@ a {
 
 .silent-underline {
   text-decoration-line: underline;
-  text-decoration-color: #2a2a2a;
+  text-decoration-color: rgb(var(--color-line));
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
   transition: text-decoration-color 150ms ease;
 }
 
 .silent-underline:hover {
-  text-decoration-color: #3a3a3a;
+  text-decoration-color: rgb(var(--color-muted));
 }
 
 .wordmark-underline {

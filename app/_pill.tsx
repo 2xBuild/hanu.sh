@@ -3,13 +3,13 @@ import type { ReactNode } from "react";
 type Tone = "violet" | "green" | "blue" | "amber" | "olive" | "pink" | "red";
 
 const tones: Record<Tone, string> = {
-  violet: "bg-white/[0.05] text-fg/92 ring-white/10 hover:bg-white/[0.08]",
-  green: "bg-white/[0.05] text-fg/92 ring-white/10 hover:bg-white/[0.08]",
-  blue: "bg-white/[0.05] text-fg/92 ring-white/10 hover:bg-white/[0.08]",
-  amber: "bg-white/[0.05] text-fg/92 ring-white/10 hover:bg-white/[0.08]",
-  olive: "bg-white/[0.05] text-fg/92 ring-white/10 hover:bg-white/[0.08]",
-  pink: "bg-white/[0.05] text-fg/92 ring-white/10 hover:bg-white/[0.08]",
-  red: "bg-white/[0.05] text-fg/92 ring-white/10 hover:bg-white/[0.08]",
+  violet: "bg-surface/5 text-fg/92 ring-line hover:bg-surface/8",
+  green: "bg-surface/5 text-fg/92 ring-line hover:bg-surface/8",
+  blue: "bg-surface/5 text-fg/92 ring-line hover:bg-surface/8",
+  amber: "bg-surface/5 text-fg/92 ring-line hover:bg-surface/8",
+  olive: "bg-surface/5 text-fg/92 ring-line hover:bg-surface/8",
+  pink: "bg-surface/5 text-fg/92 ring-line hover:bg-surface/8",
+  red: "bg-surface/5 text-fg/92 ring-line hover:bg-surface/8",
 };
 
 export function Pill({

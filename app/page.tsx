@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Shell, SectionTitle } from "./_shell";
 import { Pill } from "./_pill";
 import { SiteLogo } from "./_site-logo";
+import { ThemeToggleAvatar } from "./_theme-toggle";
 import {
   MailIcon,
   GitHubIcon,
@@ -20,13 +20,7 @@ export default function HomePage() {
     <Shell>
       <header>
         <div className="flex items-center gap-4"><h1 className="font-serif text-4xl leading-none sm:text-5xl">im</h1>
-          <Image
-            src="/image.png"
-            alt="Hanu"
-            width={44}
-            height={44}
-            className="h-11 w-11 rounded-full object-cover ring-1 ring-white/10"
-          />
+          <ThemeToggleAvatar />
           <h1 className="font-serif text-4xl leading-none sm:text-5xl">
             <span className="wordmark-underline">hanu</span>
           </h1>
