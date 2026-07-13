@@ -30,20 +30,9 @@ export default function HomePage() {
 
       <section className="mt-8 max-w-[58ch] text-base leading-relaxed text-fg/90">
         <p>
-          21 y.o. fullstack eng with design eyes who loves to explore, break and build.{" "}
-          <span className="text-fg/75">co-founder at </span>
-        <span className="inline-flex items-baseline gap-1 pl-1 align-baseline">
-            <SiteLogo className="relative top-[0.08em] h-[0.95em] w-[0.95em]" src={projects[0].logo} name="onepurplepen" />
-            <a
-            href="https://onepurplepen.com"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-baseline"
-          >
-            <span>onepurplepen</span>
-          </a>
-          </span>
-          .
+          21 y.o. fullstack eng with design eyes. i build stuff people use. dms are open for work/business.
+        
+          
         </p>
       </section>
 
@@ -86,9 +75,13 @@ export default function HomePage() {
               rel="noreferrer"
               className={`silent-underline inline-flex items-center gap-3 font-serif text-2xl leading-tight ${
                 p.visibility === "inactive" ? "text-fg/45" : ""
+              } ${
+                p.visibility === "closed"
+                  ? "relative after:absolute after:top-1/2 after:left-0 after:w-full after:-translate-y-1/2 after:h-[2px] after:bg-current after:content-[''] opacity-60 grayscale text-fg/60"
+                  : ""
               }`}
             >
-              <SiteLogo src={p.logo} name={p.name} className="h-5 w-5" />
+              <SiteLogo src={p.logo} name={p.name} className={p.smallLogo ? "h-7 w-7" : "h-5 w-5"} />
               <span>{p.name}</span>
             </a>
           </li>
