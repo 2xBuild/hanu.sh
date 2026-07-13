@@ -81,7 +81,7 @@ export default function HomePage() {
                   : ""
               }`}
             >
-              <SiteLogo src={p.logo} name={p.name} className={p.smallLogo ? "h-7 w-7" : "h-5 w-5"} />
+              <SiteLogo src={p.logo} name={p.name} className={`${p.logoSize === "small" ? "h-7 w-7" : p.logoSize === "big" ? "h-3 w-3" : "h-5 w-5"} ${p.visibility === "inactive" ? "opacity-50 grayscale" : ""}`} />
               <span>{p.name}</span>
             </a>
           </li>

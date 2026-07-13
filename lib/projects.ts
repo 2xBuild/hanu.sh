@@ -2,8 +2,8 @@ export type Project = {
   name: string;
   href: string;
   logo: string;
+  logoSize?: "small" | "big";
   visibility: "active" | "inactive" | "closed";
-  smallLogo?: boolean
 };
 
 export const projects: Project[] = [
@@ -11,15 +11,16 @@ export const projects: Project[] = [
     name: "oneDB",
     href: "https://onedb.net",
     logo: "https://onedb.net/icon.svg",
-    visibility: "active"
+    visibility: "active",
+    logoSize: "big"
     
   },
   {
     name: "tpot.cc",
     href: "https://tpot.cc",
-    logo: "https://www.tpot.cc/logo.svg",
+    logo: "/tpot.png",
     visibility: "inactive",
-    smallLogo: true
+
   },
   {
     name: "nearmate",
