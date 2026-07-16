@@ -41,16 +41,27 @@ export function ThemeToggleAvatar() {
     <button
       type="button"
       onClick={toggleTheme}
+      onContextMenu={(e) => e.preventDefault()}
+      onDragStart={(e) => e.preventDefault()}
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
       title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-      className="rounded-full transition-transform duration-200 hover:scale-[1.03] focus:outline-none focus:ring-2 focus:ring-fg/20 focus:ring-offset-2 focus:ring-offset-bg"
+      className="relative h-11 w-11 shrink-0 select-none overflow-hidden rounded-full ring-1 ring-line transition-transform duration-200 hover:scale-[1.03] focus:outline-none focus:ring-2 focus:ring-fg/20 focus:ring-offset-2 focus:ring-offset-bg"
     >
+      {/* Decorative only — no extractable handle for casual drag / open-image */}
       <Image
-        src="/image.png"
-        alt="Hanu"
-        width={44}
-        height={44}
-        className="h-11 w-11 rounded-full object-cover ring-1 ring-line"
+        src="/me.png"
+        alt=""
+        fill
+        sizes="44px"
+        draggable={false}
+        className="pointer-events-none object-cover select-none [-webkit-user-drag:none]"
+      />
+      {/* Captures pointer so the underlying img can't be dragged or long-pressed for a URL */}
+      <span
+        aria-hidden
+        className="absolute inset-0 z-10 select-none"
+        onContextMenu={(e) => e.preventDefault()}
+        onDragStart={(e) => e.preventDefault()}
       />
     </button>
   );
