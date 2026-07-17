@@ -13,10 +13,10 @@
 
 [data-theme="light"] {
   color-scheme: light;
-  --color-bg: 249 247 242;
-  --color-fg: 27 27 27;
-  --color-muted: 101 101 101;
-  --color-line: 214 209 201;
+  --color-bg: 250 252 255;
+  --color-fg: 22 24 28;
+  --color-muted: 98 106 118;
+  --color-line: 222 228 236;
   --color-surface: 17 17 17;
 }
 
