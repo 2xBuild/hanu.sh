@@ -19,7 +19,7 @@ export const projects: Project[] = [
     name: "tpot.cc",
     href: "https://tpot.cc",
     logo: "/tpot.png",
-    visibility: "inactive",
+    visibility: "active",
 
   },
   {
