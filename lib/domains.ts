@@ -3,6 +3,7 @@ export type Domain = { name: string; href: string; logo?: string };
 export const domains: Domain[] = [
   { name: "drawi.ai", href: "https://drawi.ai", logo: "https://drawi.ai/favicon.ico" },
     { name: "kollab.to", href: "https://drawi.ai", logo: "https://kollab.to/favicon.ico" },
+         { name: "hanu.sh", href: "https://hanu.sh", logo: "https://hanu.sh/icon.svg" },
       { name: "wiral.app", href: "https://wiral.app", logo: "https://wiral.app/favicon.ico" },
         { name: "nearmate.io", href: "https://nearmate.io", logo: "https://nearmate.io/favicon.ico" },
           { name: "onepurplepen.com", href: "https://onepurplepen.com", logo: "https://onepurplepen.com/favicon.ico" },
@@ -10,6 +11,7 @@ export const domains: Domain[] = [
   { name: "dotschool.org", href: "https://dotschool.org", logo: "https://dotschool.org/icon.svg" },
     { name: "cutefol.io", href: "https://cutefol.io", logo: "https://cutefol.io/icon.svg" },
       { name: "void.ac", href: "https://void.ac", logo: "https://void.ac/icon.svg" },
+     
         
   { name: "buildzak.com", href: "https://buildzak.com", logo: "https://buildzak.com/favicon.ico" },
   { name: "oneDB.net", href: "https://oneDB.net", logo: "https://onedb.net/icon.svg" },
