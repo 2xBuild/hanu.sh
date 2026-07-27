@@ -37,7 +37,7 @@ export default function HomePage() {
       </section>
 
       <nav className="mt-6 flex flex-wrap gap-2" aria-label="Contact links">
-        <Pill href="mailto:izzhanu@gmail.com" tone="violet" icon={<MailIcon className="h-4 w-4" />}>
+        <Pill href="mailto:hi@hanu.sh" tone="violet" icon={<MailIcon className="h-4 w-4" />}>
           Email
         </Pill>
         <Pill href="https://github.com/2xBuild" tone="green" icon={<GitHubIcon className="h-4 w-4" />}>
