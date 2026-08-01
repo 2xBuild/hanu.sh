@@ -3,21 +3,37 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
-  --color-bg: 10 10 10;
-  --color-fg: 230 230 230;
-  --color-muted: 138 138 138;
-  --color-line: 42 42 42;
-  --color-surface: 255 255 255;
-}
-
-[data-theme="light"] {
   color-scheme: light;
   --color-bg: 250 252 255;
   --color-fg: 22 24 28;
   --color-muted: 98 106 118;
   --color-line: 222 228 236;
   --color-surface: 17 17 17;
+  --ui-notification-bg: 255 255 255;
+  --ui-demo-bg: 255 255 255;
+  --ui-demo-fg: 15 20 25;
+  --ui-demo-muted: 83 100 113;
+  --ui-demo-line: 230 236 240;
+  --ui-demo-hover: 247 249 249;
+  --ui-demo-skeleton: 225 232 237;
+  --ui-demo-shadow: 15 20 25;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: 10 10 10;
+  --color-fg: 230 230 230;
+  --color-muted: 138 138 138;
+  --color-line: 42 42 42;
+  --color-surface: 255 255 255;
+  --ui-notification-bg: 24 24 27;
+  --ui-demo-bg: 10 10 10;
+  --ui-demo-fg: 231 233 234;
+  --ui-demo-muted: 113 118 123;
+  --ui-demo-line: 47 51 54;
+  --ui-demo-hover: 23 25 27;
+  --ui-demo-skeleton: 32 35 39;
+  --ui-demo-shadow: 0 0 0;
 }
 
 html,

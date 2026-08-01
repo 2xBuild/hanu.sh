@@ -30,22 +30,22 @@ export function ComponentCard({
   }
 
   return (
-    <section className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+    <section className="overflow-hidden rounded-2xl border border-line bg-transparent transition-colors duration-300">
       <header className="flex items-center justify-between px-4 py-2.5">
-        <h2 className="text-xs font-medium text-slate-600">{name}</h2>
+        <h2 className="text-xs font-medium text-muted transition-colors duration-300">{name}</h2>
 
         <button
           type="button"
           onClick={copy}
           aria-label={copied ? "Copied" : "Copy code"}
           title={copied ? "Copied" : "Copy code"}
-          className="grid size-7 place-items-center rounded-md text-slate-500 transition hover:bg-slate-100 hover:text-slate-900 active:scale-90"
+          className="grid size-7 place-items-center rounded-md text-muted transition hover:bg-surface/5 hover:text-fg active:scale-90"
         >
           {copied ? <Check className="size-4 text-emerald-600" /> : <Copy className="size-4" />}
         </button>
       </header>
 
-      <div className="relative aspect-video bg-gradient-to-br from-slate-50 via-slate-100 to-indigo-50">
+      <div className="relative aspect-video bg-transparent">
         {children}
       </div>
     </section>

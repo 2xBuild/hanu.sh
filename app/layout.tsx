@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Script from "next/script";
+import { SiteThemeToggle } from "./_theme-toggle";
 import "./globals.css";
 
 // Both are Latin subsets in woff2 — `next/font/local` ships source files as-is,
@@ -57,13 +58,13 @@ export default function RootLayout({
         <Script id="theme-init" strategy="beforeInteractive">
           {`try {
             const savedTheme = localStorage.getItem("theme");
-            const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-            document.documentElement.dataset.theme = savedTheme === "dark" || savedTheme === "light" ? savedTheme : systemTheme;
+            document.documentElement.dataset.theme = savedTheme === "dark" || savedTheme === "light" ? savedTheme : "light";
           } catch {}
           `}
         </Script>
       </head>
-      <body className="min-h-dvh bg-bg font-sans text-fg antialiased">
+      <body className="min-h-dvh bg-bg font-sans text-fg antialiased transition-colors duration-300 motion-reduce:transition-none">
+        <SiteThemeToggle />
         {children}
       </body>
     </html>

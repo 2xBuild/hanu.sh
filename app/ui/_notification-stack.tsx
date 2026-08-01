@@ -145,8 +145,10 @@ export function NotificationStack() {
           return (
             <article
               key={ticket}
-              className={`absolute left-1/2 top-[36%] w-[78%] origin-bottom -translate-x-1/2 rounded-2xl border border-white/60 bg-white/45 px-3 py-2.5 shadow-lg shadow-slate-500/10 backdrop-blur-xl backdrop-saturate-150 will-change-[transform,opacity] motion-reduce:transition-opacity motion-reduce:duration-200 ${
-                animated ? "transition-[transform,opacity]" : "transition-none"
+              className={`absolute left-1/2 top-[36%] w-[78%] origin-bottom -translate-x-1/2 rounded-2xl border border-fg/10 bg-[rgb(var(--ui-notification-bg)/0.78)] px-3 py-2.5 backdrop-blur-xl backdrop-saturate-150 will-change-[transform,opacity] motion-reduce:transition-opacity motion-reduce:duration-200 ${
+                animated
+                  ? "transition-[transform,opacity,background-color,border-color]"
+                  : "transition-[background-color,border-color]"
               } ${SLOTS[slot]}`}
             >
               <div
@@ -160,10 +162,10 @@ export function NotificationStack() {
                     shown ? "opacity-0 blur-[2px]" : "opacity-100 blur-0"
                   } ${lead && !shown ? "animate-skeleton-pulse motion-reduce:animate-none" : ""}`}
                 >
-                  <div className="size-6 shrink-0 rounded-full bg-slate-400/40" />
+                  <div className="size-6 shrink-0 rounded-full bg-fg/20" />
                   <div className="min-w-0 flex-1 space-y-1.5">
-                    <div className="h-2.5 w-1/4 rounded-full bg-slate-400/40" />
-                    <div className="h-2 w-3/5 rounded-full bg-slate-400/30" />
+                    <div className="h-2.5 w-1/4 rounded-full bg-fg/20" />
+                    <div className="h-2 w-3/5 rounded-full bg-fg/15" />
                   </div>
                 </div>
 
@@ -172,10 +174,10 @@ export function NotificationStack() {
                     shown ? "opacity-100 blur-0" : "opacity-0 blur-[2px]"
                   }`}
                 >
-                  <MessageCircle className="size-6 shrink-0 text-slate-500" strokeWidth={1.75} />
+                  <MessageCircle className="size-6 shrink-0 text-muted" strokeWidth={1.75} />
                   <div className="min-w-0">
-                    <p className="truncate text-sm font-semibold leading-tight text-slate-800">{title}</p>
-                    <p className="truncate text-xs leading-tight text-slate-500">{body}</p>
+                    <p className="truncate text-sm font-semibold leading-tight text-fg">{title}</p>
+                    <p className="truncate text-xs leading-tight text-muted">{body}</p>
                   </div>
                 </div>
               </div>
@@ -184,7 +186,7 @@ export function NotificationStack() {
         })}
       </div>
 
-      <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-0.5 rounded-full border border-white/60 bg-white/45 p-0.5 shadow-md shadow-slate-500/10 backdrop-blur-xl">
+      <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-0.5 rounded-full border border-fg/10 bg-[rgb(var(--ui-notification-bg)/0.72)] p-0.5 shadow-[0_10px_30px_rgb(var(--ui-demo-shadow)/0.14)] backdrop-blur-xl transition-[background-color,border-color] duration-300">
         {SPEEDS.map((n) => (
           <button
             key={n}
@@ -192,21 +194,21 @@ export function NotificationStack() {
             aria-pressed={speed === n}
             onClick={() => setSpeed(n)}
             className={`rounded-full px-2 py-0.5 text-[11px] font-medium tabular-nums transition active:scale-95 ${
-              speed === n ? "bg-white text-slate-900 shadow-sm" : "text-slate-500 hover:text-slate-900"
+              speed === n ? "bg-fg/10 text-fg shadow-sm" : "text-muted hover:text-fg"
             }`}
           >
             {n}×
           </button>
         ))}
 
-        <span className="mx-0.5 h-3.5 w-px bg-slate-400/30" />
+        <span className="mx-0.5 h-3.5 w-px bg-fg/15" />
 
         <button
           type="button"
           aria-pressed={animated}
           aria-label={animated ? "Turn animation off" : "Turn animation on"}
           onClick={() => setAnimated((on) => !on)}
-          className="grid size-6 place-items-center rounded-full text-slate-500 transition hover:bg-white/70 hover:text-slate-900 active:scale-90"
+          className="grid size-6 place-items-center rounded-full text-muted transition hover:bg-fg/10 hover:text-fg active:scale-90"
         >
           {animated ? <Zap className="size-3.5" /> : <ZapOff className="size-3.5" />}
         </button>
@@ -216,7 +218,7 @@ export function NotificationStack() {
           aria-pressed={sound}
           aria-label={sound ? "Turn sound off" : "Turn sound on"}
           onClick={toggleSound}
-          className="grid size-6 place-items-center rounded-full text-slate-500 transition hover:bg-white/70 hover:text-slate-900 active:scale-90"
+          className="grid size-6 place-items-center rounded-full text-muted transition hover:bg-fg/10 hover:text-fg active:scale-90"
         >
           {sound ? <Volume2 className="size-3.5" /> : <VolumeX className="size-3.5" />}
         </button>

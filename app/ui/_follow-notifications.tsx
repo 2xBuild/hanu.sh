@@ -1,6 +1,6 @@
 "use client";
 
-import { Moon, Pause, Play, RotateCcw, Sun, Volume2, VolumeX } from "lucide-react";
+import { Pause, Play, RotateCcw, Volume2, VolumeX } from "lucide-react";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 
 const CADENCE = 2000; // ms between arrivals at 1×
@@ -34,27 +34,6 @@ const PROFILES: Profile[] = [
   { name: "shorya", handle: "@Shorya_codes", verified: false, avatar: "https://pbs.twimg.com/profile_images/1919788070959730690/JkQ0W4VM_bigger.jpg" },
   { name: "daybot", handle: "@hashvalue", verified: true, avatar: "https://pbs.twimg.com/profile_images/2081404746070630400/Nrfh_7N8_bigger.jpg" },
 ];
-
-const THEMES: Record<"light" | "dark", Record<string, string>> = {
-  light: {
-    "--x-bg": "255 255 255",
-    "--x-fg": "15 20 25",
-    "--x-sub": "83 100 113",
-    "--x-line": "230 236 240",
-    "--x-hover": "247 249 249",
-    "--x-skel": "225 232 237",
-    "--x-shadow": "15 20 25",
-  },
-  dark: {
-    "--x-bg": "0 0 0",
-    "--x-fg": "231 233 234",
-    "--x-sub": "113 118 123",
-    "--x-line": "47 51 54",
-    "--x-hover": "23 25 27",
-    "--x-skel": "32 35 39",
-    "--x-shadow": "0 0 0",
-  },
-};
 
 const EASE = "ease-[cubic-bezier(0.23,1,0.32,1)]";
 
@@ -146,7 +125,6 @@ export function FollowNotifications() {
   const [settled, setSettled] = useState(-1);
   const [since, setSince] = useState(0);
   const [speed, setSpeed] = useState(1);
-  const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [playing, setPlaying] = useState(true);
   const [sound, setSound] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -221,7 +199,13 @@ export function FollowNotifications() {
   }
 
   const vars = {
-    ...THEMES[theme],
+    "--x-bg": "var(--ui-demo-bg)",
+    "--x-fg": "var(--ui-demo-fg)",
+    "--x-sub": "var(--ui-demo-muted)",
+    "--x-line": "var(--ui-demo-line)",
+    "--x-hover": "var(--ui-demo-hover)",
+    "--x-skel": "var(--ui-demo-skeleton)",
+    "--x-shadow": "var(--ui-demo-shadow)",
     "--x-blue": "29 155 240",
     "--enter": `${Math.round(460 / speed)}ms`,
     "--text": `${Math.round(300 / speed)}ms`,
@@ -236,20 +220,6 @@ export function FollowNotifications() {
       className={`absolute inset-0 overflow-hidden ${solo ? SOLO : GROUP}`}
       style={vars}
     >
-      {/* Two stacked backdrops cross-fade, because a gradient can't interpolate
-          between themes — it would snap. */}
-      <div
-        className={`absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_-20%,#ffffff_0%,#eef2f8_55%,#e4eaf3_100%)] transition-opacity duration-500 ease-out ${
-          theme === "light" ? "opacity-100" : "opacity-0"
-        }`}
-      />
-      <div
-        className={`absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_-20%,#131a22_0%,#08090b_55%,#000000_100%)] transition-opacity duration-500 ease-out ${
-          theme === "dark" ? "opacity-100" : "opacity-0"
-        }`}
-      />
-      <div className="absolute inset-x-6 top-1/2 h-24 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgb(29_155_240/0.14),transparent)] blur-xl" />
-
       <div className="absolute inset-0 flex items-center px-5 sm:px-6">
         {/* Flex wrapping does the layout switch: alone, the sentence sits beside
             the avatar; in a group the row takes the line and pushes it under. */}
@@ -345,27 +315,6 @@ export function FollowNotifications() {
         ))}
 
         <span className="mx-0.5 h-3.5 w-px bg-[rgb(var(--x-line))] transition-colors duration-300" />
-
-        <button
-          type="button"
-          aria-pressed={theme === "dark"}
-          aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
-          onClick={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
-          className="grid size-6 place-items-center rounded-full text-[rgb(var(--x-sub))] transition-[transform,color,background-color] duration-200 ease-out hover:bg-[rgb(var(--x-hover))] hover:text-[rgb(var(--x-fg))] active:scale-90"
-        >
-          <span className="relative grid size-3.5 place-items-center">
-            <Sun
-              className={`absolute size-3.5 transition-[opacity,transform] duration-300 ease-out motion-reduce:transition-[opacity] ${
-                theme === "light" ? "rotate-0 opacity-100" : "-rotate-90 opacity-0"
-              }`}
-            />
-            <Moon
-              className={`absolute size-3.5 transition-[opacity,transform] duration-300 ease-out motion-reduce:transition-[opacity] ${
-                theme === "dark" ? "rotate-0 opacity-100" : "rotate-90 opacity-0"
-              }`}
-            />
-          </span>
-        </button>
 
         <button
           type="button"

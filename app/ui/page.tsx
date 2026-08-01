@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 
 export default function UiPage() {
   return (
-    <main className="min-h-dvh bg-slate-50 px-4 py-10 sm:px-6">
+    <main className="min-h-dvh bg-bg px-4 py-16 text-fg transition-colors duration-300 sm:px-6">
       <div className="mx-auto w-full max-w-5xl">
         <div className="grid gap-5 sm:grid-cols-2">
           <ComponentCard name="Notification Stack" source={read("_notification-stack.tsx")}>
