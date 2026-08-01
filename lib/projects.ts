@@ -8,19 +8,23 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    name: "oneDB",
-    href: "https://onedb.net",
-    logo: "https://onedb.net/icon.svg",
+    name: "wiral.app",
+    href: "https://wiral.app",
+    logo: "https://wiral.app/icon.svg",
     visibility: "active",
-    logoSize: "big"
-    
   },
   {
     name: "tpot.cc",
     href: "https://tpot.cc",
     logo: "/tpot.png",
     visibility: "active",
-
+  },
+  {
+    name: "oneDB",
+    href: "https://onedb.net",
+    logo: "https://onedb.net/icon.svg",
+    visibility: "active",
+    logoSize: "big",
   },
   {
     name: "nearmate",

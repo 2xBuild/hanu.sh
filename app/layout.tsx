@@ -3,15 +3,18 @@ import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 
+// Both are Latin subsets in woff2 — `next/font/local` ships source files as-is,
+// and the unsubset Jeju Myeongjo is a 9.6 MB CJK face. See lib/og.ts for the
+// matching .ttf cuts, which Satori needs for the OG images.
 const generalSans = localFont({
-  src: "./fonts/GeneralSans-Variable.ttf",
+  src: "./fonts/GeneralSans-Variable.woff2",
   variable: "--font-general-sans",
   display: "swap",
   weight: "200 700",
 });
 
 const jejuMyeongjo = localFont({
-  src: "./fonts/JejuMyeongjo-Regular.ttf",
+  src: "./fonts/JejuMyeongjo-Latin.woff2",
   variable: "--font-jeju-myeongjo",
   display: "swap",
   weight: "400",

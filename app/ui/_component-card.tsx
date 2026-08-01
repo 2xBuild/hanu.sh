@@ -31,7 +31,7 @@ export function ComponentCard({
 
   return (
     <section className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-      <header className="flex items-center justify-between border-b border-slate-100 px-4 py-2.5">
+      <header className="flex items-center justify-between px-4 py-2.5">
         <h2 className="text-xs font-medium text-slate-600">{name}</h2>
 
         <button
