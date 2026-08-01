@@ -76,31 +76,40 @@ function ago(seconds: number) {
   return `${Math.floor(seconds / 86400)}d`;
 }
 
-// A rising fifth with a quiet octave over it — short, soft, and pitched to read
-// as someone arriving rather than as an alert.
-function pop(ctx: AudioContext | null) {
+// Two quick, rounded notes read as a small social arrival instead of an alert.
+// The filtered overtones add enough sparkle to feel intentional at low volume.
+function followChime(ctx: AudioContext | null) {
   if (ctx?.state !== "running") return;
 
   const start = ctx.currentTime;
+  const filter = ctx.createBiquadFilter();
+  const tones: [frequency: number, delay: number, peak: number, decay: number, type: OscillatorType][] = [
+    [659.25, 0, 0.07, 0.2, "sine"],
+    [830.61, 0.065, 0.055, 0.28, "sine"],
+    [1661.22, 0.065, 0.009, 0.18, "triangle"],
+  ];
 
-  for (const [from, to, peak, decay] of [
-    [523.25, 783.99, 0.085, 0.26],
-    [1046.5, 1568, 0.028, 0.16],
-  ]) {
+  filter.type = "lowpass";
+  filter.frequency.setValueAtTime(2800, start);
+  filter.Q.setValueAtTime(0.45, start);
+  filter.connect(ctx.destination);
+
+  for (const [frequency, delay, peak, decay, type] of tones) {
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
+    const at = start + delay;
 
-    osc.type = "sine";
-    osc.frequency.setValueAtTime(from, start);
-    osc.frequency.exponentialRampToValueAtTime(to, start + 0.09);
+    osc.type = type;
+    osc.frequency.setValueAtTime(frequency * 0.97, at);
+    osc.frequency.exponentialRampToValueAtTime(frequency, at + 0.035);
 
-    gain.gain.setValueAtTime(0.0001, start);
-    gain.gain.exponentialRampToValueAtTime(peak, start + 0.012);
-    gain.gain.exponentialRampToValueAtTime(0.0001, start + decay);
+    gain.gain.setValueAtTime(0.0001, at);
+    gain.gain.exponentialRampToValueAtTime(peak, at + 0.009);
+    gain.gain.exponentialRampToValueAtTime(0.0001, at + decay);
 
-    osc.connect(gain).connect(ctx.destination);
-    osc.start(start);
-    osc.stop(start + decay + 0.02);
+    osc.connect(gain).connect(filter);
+    osc.start(at);
+    osc.stop(at + decay + 0.02);
   }
 }
 
@@ -140,7 +149,6 @@ export function FollowNotifications() {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [playing, setPlaying] = useState(true);
   const [sound, setSound] = useState(false);
-  const [engaged, setEngaged] = useState(false);
   const [hidden, setHidden] = useState(false);
 
   const ctxRef = useRef<AudioContext | null>(null);
@@ -151,7 +159,7 @@ export function FollowNotifications() {
   const arriving = newest > settled;
   const solo = count === 1;
   const complete = count >= PROFILES.length;
-  const running = playing && !engaged && !hidden && !complete;
+  const running = playing && !hidden && !complete;
   const lead = profileFor(newest);
 
   useEffect(() => {
@@ -168,7 +176,7 @@ export function FollowNotifications() {
     if (!running) return;
 
     const timer = window.setTimeout(() => {
-      if (soundRef.current) pop(ctxRef.current);
+      if (soundRef.current) followChime(ctxRef.current);
       setCount((n) => n + 1);
     }, CADENCE / speed);
 
@@ -227,8 +235,6 @@ export function FollowNotifications() {
     <div
       className={`absolute inset-0 overflow-hidden ${solo ? SOLO : GROUP}`}
       style={vars}
-      onPointerEnter={() => setEngaged(true)}
-      onPointerLeave={() => setEngaged(false)}
     >
       {/* Two stacked backdrops cross-fade, because a gradient can't interpolate
           between themes — it would snap. */}
