@@ -7,10 +7,13 @@ export function ComponentCard({
   name,
   source,
   children,
+  demoClassName = "aspect-video",
 }: {
   name: string;
   source: string;
   children: ReactNode;
+  /** Overrides the default 16:9 preview container — pass any height/aspect class. */
+  demoClassName?: string;
 }) {
   const [copied, setCopied] = useState(false);
   const timer = useRef<number | undefined>(undefined);
@@ -45,7 +48,7 @@ export function ComponentCard({
         </button>
       </header>
 
-      <div className="relative aspect-video bg-transparent">
+      <div className={`relative bg-transparent ${demoClassName}`}>
         {children}
       </div>
     </section>

@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import { readFileSync } from "fs";
 import { join } from "path";
 
+import { Celebrate } from "../celebrate/_celebrate";
 import { ComponentCard } from "./_component-card";
 import { FollowNotifications } from "./_follow-notifications";
 import { NotificationStack } from "./_notification-stack";
 
 const read = (file: string) => readFileSync(join(process.cwd(), "app/ui", file), "utf8");
+const readAt = (path: string) => readFileSync(join(process.cwd(), path), "utf8");
 
 const description =
   "Interface components I build and reuse — animated, accessible, and ready to copy straight off the card.";
@@ -43,6 +45,16 @@ export default function UiPage() {
           <ComponentCard name="Follow Notifications" source={read("_follow-notifications.tsx")}>
             <FollowNotifications />
           </ComponentCard>
+
+          <div className="sm:col-span-2">
+            <ComponentCard
+              name="Celebrate"
+              source={readAt("app/celebrate/_celebrate.tsx")}
+              demoClassName="p-6 sm:p-8"
+            >
+              <Celebrate />
+            </ComponentCard>
+          </div>
         </div>
       </div>
     </main>

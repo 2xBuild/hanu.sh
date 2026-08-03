@@ -109,6 +109,12 @@ export default function HomePage() {
           </Link>{" "}
           <span className="text-muted">— the domain garden I&apos;m tending.</span>
         </li>
+        <li>
+          <Link href="/ui" className="silent-underline">
+            UI
+          </Link>{" "}
+          <span className="text-muted">— components and stuff i created for fun.</span>
+        </li>
       </ul>
 
     </Shell>

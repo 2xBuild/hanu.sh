@@ -27,7 +27,7 @@ export function ProfileAvatar() {
   );
 }
 
-export function SiteThemeToggle() {
+function ThemeToggleButton() {
   const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
@@ -64,4 +64,15 @@ export function SiteThemeToggle() {
       </span>
     </button>
   );
+}
+
+import { usePathname } from "next/navigation";
+
+export function SiteThemeToggle() {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
+
+  if (isHomePage) return null;
+
+  return <ThemeToggleButton />;
 }

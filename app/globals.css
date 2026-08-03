@@ -36,6 +36,15 @@
   --ui-demo-shadow: 0 0 0;
 }
 
+[data-theme="light"] .celebrate-card {
+  background: transparent;
+  /* Tailwind's `ring` utility is a box-shadow, so `box-shadow: none` erases it
+     along with the drop shadow. Replace both with an explicit 1px outer shadow
+     to hold the card's edge against the page. */
+  box-shadow: 0 0 0 1px rgb(var(--ui-demo-fg) / 0.14);
+  --tw-ring-color: transparent;
+}
+
 html,
 body {
   background: rgb(var(--color-bg));

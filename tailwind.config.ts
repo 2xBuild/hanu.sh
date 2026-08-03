@@ -17,6 +17,11 @@ export default {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "var(--pulse-min, 0.5)" },
         },
+        // Never from nothing: the row starts at 96% and 6px low, not at zero.
+        "fade-up": {
+          from: { opacity: "0", transform: "translateY(6px) scale(0.96)" },
+          to: { opacity: "1", transform: "none" },
+        },
       },
       animation: {
         "skeleton-pulse": "skeleton-pulse var(--pulse) ease-in-out var(--pulse-count, 1)",
